@@ -6,6 +6,11 @@ from langgraph.graph.message import add_messages
 from langgraph.graph import START, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 from IPython.display import Image, display # type: ignore
+from langchain_core.runnables.graph_mermaid import MermaidDrawMethod # type: ignore
+
+
+from dotenv import load_dotenv
+load_dotenv()
 
 class AgentState(TypedDict):
     # The document provided
@@ -117,7 +122,15 @@ builder.add_edge("tools", "assistant")
 react_graph = builder.compile()
 
 # Show the butler's thought process
-display(Image(react_graph.get_graph(xray=True).draw_mermaid_png()))
+# display(Image(react_graph.get_graph(xray=True).draw_mermaid_png()))
+display(
+    Image(
+        react_graph.get_graph(xray=True).draw_mermaid_png(
+            draw_method=MermaidDrawMethod.PYPPETEER
+        )
+    )
+)
+
 
 messages = [HumanMessage(content="Divide 6790 by 5")]
 

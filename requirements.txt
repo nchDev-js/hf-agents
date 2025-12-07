@@ -140,6 +140,8 @@ httpx==0.28.1
     #   gradio
     #   gradio-client
     #   langfuse
+    #   langgraph-sdk
+    #   langsmith
     #   litellm
     #   llama-index-core
     #   openai
@@ -179,6 +181,10 @@ jiter==0.12.0
     # via openai
 joblib==1.5.2
     # via nltk
+jsonpatch==1.33
+    # via langchain-core
+jsonpointer==3.0.0
+    # via jsonpatch
 jsonschema==4.25.1
     # via litellm
 jsonschema-specifications==2025.9.1
@@ -187,8 +193,34 @@ kaleido==1.2.0
     # via agent (pyproject.toml)
 kiwisolver==1.4.9
     # via matplotlib
+langchain==1.1.2
+    # via agent (pyproject.toml)
+langchain-core==1.1.1
+    # via
+    #   agent (pyproject.toml)
+    #   langchain
+    #   langchain-openai
+    #   langgraph
+    #   langgraph-checkpoint
+    #   langgraph-prebuilt
+langchain-openai==1.1.0
+    # via agent (pyproject.toml)
 langfuse==3.9.2
     # via agent (pyproject.toml)
+langgraph==1.0.4
+    # via
+    #   agent (pyproject.toml)
+    #   langchain
+langgraph-checkpoint==3.0.1
+    # via
+    #   langgraph
+    #   langgraph-prebuilt
+langgraph-prebuilt==1.0.5
+    # via langgraph
+langgraph-sdk==0.2.14
+    # via langgraph
+langsmith==0.4.56
+    # via langchain-core
 litellm==1.79.3
     # via
     #   agent (pyproject.toml)
@@ -257,6 +289,7 @@ numpy==2.3.4
     #   transformers
 openai==2.7.2
     # via
+    #   langchain-openai
     #   langfuse
     #   litellm
 openinference-instrumentation==0.1.42
@@ -312,6 +345,10 @@ orjson==3.11.4
     # via
     #   gradio
     #   kaleido
+    #   langgraph-sdk
+    #   langsmith
+ormsgpack==1.12.0
+    # via langgraph-checkpoint
 packaging==25.0
     # via
     #   accelerate
@@ -320,7 +357,9 @@ packaging==25.0
     #   gradio-client
     #   huggingface-hub
     #   kaleido
+    #   langchain-core
     #   langfuse
+    #   langsmith
     #   marshmallow
     #   matplotlib
     #   opentelemetry-instrumentation
@@ -365,7 +404,11 @@ pydantic==2.11.10
     #   banks
     #   fastapi
     #   gradio
+    #   langchain
+    #   langchain-core
     #   langfuse
+    #   langgraph
+    #   langsmith
     #   litellm
     #   llama-index-core
     #   llama-index-instrumentation
@@ -406,6 +449,7 @@ pyyaml==6.0.3
     #   accelerate
     #   gradio
     #   huggingface-hub
+    #   langchain-core
     #   llama-index-core
     #   transformers
 referencing==0.37.0
@@ -421,11 +465,15 @@ requests==2.32.5
     # via
     #   huggingface-hub
     #   langfuse
+    #   langsmith
     #   llama-index-core
     #   opentelemetry-exporter-otlp-proto-http
+    #   requests-toolbelt
     #   smolagents
     #   tiktoken
     #   transformers
+requests-toolbelt==1.0.0
+    # via langsmith
 rich==14.2.0
     # via
     #   smolagents
@@ -475,9 +523,12 @@ starlette==0.49.3
 sympy==1.14.0
     # via torch
 tenacity==9.1.2
-    # via llama-index-core
+    # via
+    #   langchain-core
+    #   llama-index-core
 tiktoken==0.12.0
     # via
+    #   langchain-openai
     #   litellm
     #   llama-index-core
 tokenizers==0.22.1
@@ -510,6 +561,7 @@ typing-extensions==4.15.0
     #   gradio-client
     #   grpcio
     #   huggingface-hub
+    #   langchain-core
     #   llama-index-core
     #   llama-index-workflows
     #   openai
@@ -536,6 +588,10 @@ tzdata==2025.2
     # via pandas
 urllib3==2.5.0
     # via requests
+uuid-utils==0.12.0
+    # via
+    #   langchain-core
+    #   langsmith
 uvicorn==0.38.0
     # via gradio
 websockets==15.0.1
@@ -548,7 +604,11 @@ wrapt==1.17.3
     #   openinference-instrumentation
     #   openinference-instrumentation-smolagents
     #   opentelemetry-instrumentation
+xxhash==3.6.0
+    # via langgraph
 yarl==1.22.0
     # via aiohttp
 zipp==3.23.0
     # via importlib-metadata
+zstandard==0.25.0
+    # via langsmith
